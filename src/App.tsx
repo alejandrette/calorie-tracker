@@ -14,10 +14,13 @@ function App() {
 
   return (
     <>
-      <Header 
-      dispatch={dispatch}    
+      <Header
+        state={state}
+        dispatch={dispatch}    
       />
-      <Calories />
+      <Calories 
+        activities={state.activities}
+      />
       <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto mt-8">
         <Form 
           state={state}

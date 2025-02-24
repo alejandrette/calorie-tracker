@@ -1,18 +1,22 @@
-import { ActionDispatch } from "react"
-import { ActivityActions } from "../reducers/activity-reducer"
+import { ActionDispatch, useMemo } from "react"
+import { ActivityActions, ActivityState } from "../reducers/activity-reducer"
 
 type HeaderProps = {
-  dispatch: ActionDispatch<[action: ActivityActions]>
+  state: ActivityState;
+  dispatch: ActionDispatch<[action: ActivityActions]>;
 }
 
-export function Header({ dispatch }: HeaderProps) {
+export function Header({ state, dispatch }: HeaderProps) {
+  const canResetApp = useMemo(() => state.activities.length > 0, [state.activities])
+
   return (
     <header className="flex justify-between items-center p-4 bg-green-900 text-white">
       <div className="max-w-4xl mx-auto flex justify-between items-center w-full">
         <h1 className="text-2xl font-bold">Calorie Tracker</h1>
         <button
-          className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-green-600 disabled:opacity-20 enabled:hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
           onClick={() => dispatch({ type: 'reset-app'})}  
+          disabled={!canResetApp}
         >
           Reset App
         </button>
