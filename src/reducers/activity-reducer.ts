@@ -1,17 +1,19 @@
 import { Activity } from "../types"
 
 // Lo que va a describir lo que hace el reducer
-export type ActivityActions = {
-   type: 'save-activity', payload: { newActivity: Activity }
-}
+export type ActivityActions = 
+  { type: 'save-activity', payload: { newActivity: Activity } } | 
+  { type: 'set-activeId', payload: { id: Activity['id'] } }
 
 interface ActivityState {
-  activities: Activity[]
+  activities: Activity[],
+  activeId: Activity['id'] | null
 }
 
 // Valor inicial del reducer
 export const initialState: ActivityState = {
-  activities: []
+  activities: [],
+  activeId: null 
 }
 
 // Reducer que va a modificar el estado de la aplicación dependiendo de la acción que se le pase
@@ -19,4 +21,10 @@ export const activityReducer = (state: ActivityState = initialState, action: Act
   if(action.type === 'save-activity'){
     return { ...state, activities: [...state.activities, action.payload.newActivity] }
   }
+
+  if(action.type === 'set-activeId'){
+    return { ...state, activeId: action.payload.id }
+  }
+
+  return state
 }
