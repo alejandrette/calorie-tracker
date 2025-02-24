@@ -3,7 +3,8 @@ import { Activity } from "../types"
 // Lo que va a describir lo que hace el reducer
 export type ActivityActions = 
   { type: 'save-activity', payload: { newActivity: Activity } } | 
-  { type: 'set-activeId', payload: { id: Activity['id'] } }
+  { type: 'set-activeId', payload: { id: Activity['id'] } } |
+  { type: 'delete-active', payload: { id: Activity['id'] } }
 
 export interface ActivityState {
   activities: Activity[],
@@ -30,6 +31,10 @@ export const activityReducer = (state: ActivityState = initialState, action: Act
 
   if(action.type === 'set-activeId'){
     return { ...state, activeId: action.payload.id }
+  }
+
+  if(action.type === 'delete-active'){
+    return { ...state, activities: state.activities.filter(activity => activity.id !== action.payload.id) }
   }
 
   return state

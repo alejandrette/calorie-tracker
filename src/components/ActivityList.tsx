@@ -37,7 +37,10 @@ export function ActivityList({ activities, dispatch }: ActivityListProps) {
               >
                 <MdModeEditOutline size={24} />
               </button>
-              <button className="p-2 text-red-400 hover:text-red-500 transition">
+              <button 
+                className="p-2 text-red-400 hover:text-red-500 transition"
+                onClick={() => dispatch({ type: 'delete-active', payload: { id: activity.id } })}  
+              >
                 <FaDeleteLeft size={24} />
               </button>
             </div>
