@@ -11,9 +11,14 @@ export interface ActivityState {
   activeId: Activity['id']
 }
 
+const localStorageActivities = (): Activity[] => {
+  const activities = localStorage.getItem('activities')
+  return activities ? JSON.parse(activities) : []
+}
+
 // Valor inicial del reducer
 export const initialState: ActivityState = {
-  activities: [],
+  activities: localStorageActivities(),
   activeId: '' 
 }
 
