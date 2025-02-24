@@ -5,21 +5,27 @@ export type ActivityActions =
   { type: 'save-activity', payload: { newActivity: Activity } } | 
   { type: 'set-activeId', payload: { id: Activity['id'] } }
 
-interface ActivityState {
+export interface ActivityState {
   activities: Activity[],
-  activeId: Activity['id'] | null
+  activeId: Activity['id']
 }
 
 // Valor inicial del reducer
 export const initialState: ActivityState = {
   activities: [],
-  activeId: null 
+  activeId: '' 
 }
 
 // Reducer que va a modificar el estado de la aplicación dependiendo de la acción que se le pase
 export const activityReducer = (state: ActivityState = initialState, action: ActivityActions) => {
   if(action.type === 'save-activity'){
-    return { ...state, activities: [...state.activities, action.payload.newActivity] }
+    let updateActivities: Activity[] = []
+    if(state.activeId){
+      updateActivities = state.activities.map(activity => activity.id === state.activeId ? action.payload.newActivity : activity)
+    } else {
+      updateActivities = [...state.activities, action.payload.newActivity]
+    }
+    return { ...state, activities: updateActivities, activeId: '' }
   }
 
   if(action.type === 'set-activeId'){

@@ -1,6 +1,8 @@
+import { Dispatch } from "react";
 import { Activity } from "../types";
 import { MdModeEditOutline } from "react-icons/md";
 import { FaDeleteLeft } from "react-icons/fa6";
+import { ActivityActions } from "../reducers/activity-reducer";
 
 const categoryColors: Record<number, string> = {
   1: "bg-green-500", // Food
@@ -9,10 +11,11 @@ const categoryColors: Record<number, string> = {
 
 type ActivityListProps = {
   activities: Activity[];
+  dispatch: Dispatch<ActivityActions>;
 };
 
-export function ActivityList({ activities }: ActivityListProps) {
-  console.log(activities);
+export function ActivityList({ activities, dispatch }: ActivityListProps) {
+
   return (
     <div className="space-y-4">
       {activities.map((activity) => (
@@ -27,11 +30,10 @@ export function ActivityList({ activities }: ActivityListProps) {
               <h2 className="text-xl font-semibold">{activity.name}</h2>
               <p className="text-gray-300">Calories: {activity.calories}</p>
             </div>
-
             <div>
               <button 
                 className="p-2 text-orange-400 hover:text-orange-500 transition"
-                onClick={}  
+                onClick={() => dispatch({ type: 'set-activeId', payload: { id: activity.id } })}  
               >
                 <MdModeEditOutline size={24} />
               </button>

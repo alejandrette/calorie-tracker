@@ -14,10 +14,12 @@ function App() {
       <Calories />
       <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto mt-8">
         <Form 
+          state={state}
           dispatch={dispatch}
         />
         <ActivityList 
           activities={state.activities}
+          dispatch={dispatch}
         />
       </div>
     </>
