@@ -1,50 +1,105 @@
-# React + TypeScript + Vite
+# 🥗 Calorie Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenido a **Calorie Tracker**, una aplicación diseñada para ayudarte a monitorear tu ingesta calórica diaria y mantener un estilo de vida saludable. Esta herramienta es completamente **responsive** y utiliza tecnologías modernas de React para ofrecer una experiencia de usuario fluida y eficiente.
 
-Currently, two official plugins are available:
+## 🚀 Demo en Vivo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Prueba la aplicación en vivo haciendo clic en el siguiente enlace:
 
-## Expanding the ESLint configuration
+[🔗 Demo en vivo](https://calorie-tracke-alejandrette.netlify.app/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## ⚙️ Tecnologías Utilizadas
 
-- Configure the top-level `parserOptions` property like this:
+- **React** ⚛️: Biblioteca principal para construir la interfaz de usuario.
+- **TypeScript** 📜: Para un tipado seguro y mejor mantenimiento del código.
+- **Tailwind CSS** 🎨: Para un diseño moderno y adaptable.
+- **Vite** ⚡: Herramienta de construcción rápida para proyectos web modernos.
+- **React Icons** 🎯: Conjunto de iconos populares para mejorar la interfaz visual.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🌟 Características
+
+- **Registro de Actividades 📝**  
+  - Añade actividades diarias con detalles como nombre, categoría y calorías.
+- **Categorización de Actividades 📂**  
+  - Clasifica las actividades en categorías como "Alimentación" y "Ejercicio".
+- **Cálculo de Calorías en Tiempo Real 🔄**  
+  - Visualiza el consumo y quema de calorías al instante.
+- **Interfaz Intuitiva y Minimalista 🖌️**  
+  - Diseño limpio y moderno para una experiencia de usuario agradable.
+- **Diseño Responsivo 📱**  
+  - Adaptado para funcionar en dispositivos móviles, tabletas y computadoras de escritorio.
+
+## 📦 Instalación y Uso
+
+1. Clona el repositorio:  
+
+```bash
+  git clone https://github.com/alejandrette/calorie-tracker.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Navega al directorio del proyecto:  
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+  ```bash
+    cd calorie-tracker
+  ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+3. Instala las dependencias:  
+
+  ```bash
+   npm install
+  ```
+
+4. Inicia la aplicación en modo desarrollo:  
+
+  ```bash
+   npm run dev
+  ```
+
+5. Abre `http://localhost:5173` en tu navegador para ver la aplicación en acción.
+
+## 📱 Capturas de Pantalla
+
+**Vista en Escritorio:**
+
+![alt text](image-1.png)
+
+**Vista en Móvil:**
+
+![alt text](image-2.png)
+
+## 🛠️ Cómo Funciona
+
+1. **Añadir una Actividad:**  
+   - Completa el formulario con el nombre de la actividad, selecciona la categoría y especifica las calorías.  
+   - Haz clic en "Guardar" para registrar la actividad.
+
+2. **Visualizar Actividades:**  
+   - Las actividades registradas se muestran en una lista con detalles como nombre, categoría y calorías.
+
+3. **Monitorear Calorías:**  
+   - La sección de resumen muestra las calorías consumidas, quemadas y la diferencia neta.
+
+## 🚀 Desarrollo Futuro
+
+- **Gráficos de Progreso 📈** Visualizar el progreso de consumo y quema de calorías a lo largo del tiempo.
+- **Sincronización con Dispositivos Wearables ⌚** Integración con dispositivos de seguimiento de actividad física.
+
+## 👥 Contribuciones
+
+Si deseas contribuir al proyecto, sigue estos pasos:
+
+1. Haz un fork del repositorio.
+2. Crea una nueva rama con una nueva funcionalidad:  
+
+  ```bash
+   git checkout -b feature/nueva-funcionalidad
+  ```
+
+3. Realiza tus cambios y súbelos:  
+
+  ```bash
+   git commit -m "Añadir nueva funcionalidad"
+   git push origin feature/nueva-funcionalidad
+  ```
+
+4. Abre un Pull Request.
