@@ -14,7 +14,7 @@ export function Header({ state, dispatch }: HeaderProps) {
       <div className="max-w-4xl mx-auto flex justify-between items-center w-full">
         <h1 className="text-2xl font-bold">Calorie Tracker</h1>
         <button
-          className="bg-green-600 disabled:opacity-20 enabled:hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-green-700 disabled:opacity-20 enabled:hover:bg-green-800 text-white font-bold py-2 px-4 rounded"
           onClick={() => dispatch({ type: 'reset-app'})}  
           disabled={!canResetApp}
         >

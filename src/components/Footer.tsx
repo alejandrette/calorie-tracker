@@ -9,7 +9,7 @@ export function Footer() {
           href="https://github.com/alejandrette" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="flex items-center justify-center text-white hover:text-green-500 transition-colors"
+          className="flex items-center justify-center text-white hover:text-green-700 transition-colors"
         >
           <FaGithub className="mr-2" /> Visit my GitHub
         </a>

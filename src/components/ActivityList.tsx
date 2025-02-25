@@ -5,8 +5,8 @@ import { FaDeleteLeft } from "react-icons/fa6";
 import { ActivityActions } from "../reducers/activity-reducer";
 
 const categoryColors: Record<number, string> = {
-  1: "bg-green-500", // Food
-  2: "bg-blue-500" // Exercise
+  1: "bg-green-700", // Food
+  2: "bg-blue-700" // Exercise
 };
 
 type ActivityListProps = {
@@ -37,13 +37,13 @@ export function ActivityList({ activities, dispatch }: ActivityListProps) {
                 </div>
                 <div className="mt-4 md:mt-0">
                   <button 
-                    className="p-2 text-orange-400 hover:text-orange-500 transition"
+                    className="p-2 text-orange-500 hover:text-orange-700 transition"
                     onClick={() => dispatch({ type: 'set-activeId', payload: { id: activity.id } })}  
                   >
                     <MdModeEditOutline size={24} />
                   </button>
                   <button 
-                    className="p-2 text-red-400 hover:text-red-500 transition"
+                    className="p-2 text-red-600 hover:text-red-900 transition"
                     onClick={() => dispatch({ type: 'delete-active', payload: { id: activity.id } })}  
                   >
                     <FaDeleteLeft size={24} />

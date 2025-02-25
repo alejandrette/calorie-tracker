@@ -28,7 +28,7 @@ export function Form({ dispatch, state }: FormProps) {
       const selectActivity = state.activities.filter(activity => activity.id === state.activeId)[0]
       setActivity(selectActivity)
     }
-  }, [state.activeId])
+  }, [state.activeId, state.activities])
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const isNumber = ['calories', 'category'].includes(e.target.id)
@@ -50,12 +50,12 @@ export function Form({ dispatch, state }: FormProps) {
   }
 
   return (
-    <form className="bg-green-900 shadow-lg rounded-lg p-6 space-y-4 text-white ml-4" onSubmit={handleSubmit}>
+    <form className="bg-gray-800 shadow-lg rounded-lg p-6 space-y-4 text-white ml-4" onSubmit={handleSubmit}>
       <div className="flex flex-col">
         <label htmlFor="category" className="text-lg font-semibold mb-1">Category</label>
         <select 
           id="category" 
-          className="bg-green-800 border border-green-600 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="bg-gray-700 border border-gray-500 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:border-gray-500"
           value={activity.category}
           onChange={handleChange}
         >
@@ -73,7 +73,7 @@ export function Form({ dispatch, state }: FormProps) {
           value={activity.name}
           onChange={handleChange}
           placeholder="E.g. Running, Food, etc."
-          className="bg-green-800 border border-green-600 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="bg-gray-700 border border-gray-500 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:border-gray-500"
         />
       </div>
 
@@ -85,13 +85,13 @@ export function Form({ dispatch, state }: FormProps) {
           value={activity.calories}
           onChange={handleChange}
           placeholder="E.g. 300 or 500."
-          className="bg-green-800 border border-green-600 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="bg-gray-700 border border-gray-500 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:border-gray-500"
         />
       </div>
 
       <button 
         type="submit" 
-        className="w-full bg-green-600 hover:bg-green-500 disabled:opacity-30 transition duration-300 text-white font-bold py-2 px-4 rounded-lg mt-4"
+        className="w-full bg-gray-700 enabled:hover:bg-gray-400 enabled:hover:text-black disabled:opacity-30 transition duration-300 text-white font-bold py-2 px-4 rounded-lg mt-4"
         disabled={!isValidForm()}
       >
         Save {activity.category === 1 ? 'Food' : 'Exercise'}
