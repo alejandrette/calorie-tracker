@@ -50,7 +50,7 @@ export function Form({ dispatch, state }: FormProps) {
   }
 
   return (
-    <form className="bg-green-900 shadow-lg rounded-lg p-6 space-y-4 text-white" onSubmit={handleSubmit}>
+    <form className="bg-green-900 shadow-lg rounded-lg p-6 space-y-4 text-white ml-4" onSubmit={handleSubmit}>
       <div className="flex flex-col">
         <label htmlFor="category" className="text-lg font-semibold mb-1">Category</label>
         <select 

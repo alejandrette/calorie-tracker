@@ -30,12 +30,12 @@ export function ActivityList({ activities, dispatch }: ActivityListProps) {
             >
               <div className={`${categoryColors[activity.category]} h-4 w-full absolute top-0 left-0`}></div>
     
-              <div className="flex justify-between items-center p-6 pt-10">
+              <div className="md:flex justify-between items-center p-6 pt-10">
                 <div>
                   <h2 className="text-xl font-semibold">{activity.name}</h2>
                   <p className="text-gray-300">Calories: {activity.calories}</p>
                 </div>
-                <div>
+                <div className="mt-4 md:mt-0">
                   <button 
                     className="p-2 text-orange-400 hover:text-orange-500 transition"
                     onClick={() => dispatch({ type: 'set-activeId', payload: { id: activity.id } })}  

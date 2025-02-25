@@ -4,6 +4,7 @@ import { Form } from "./components/Form"
 import { Header } from "./components/Header"
 import { activityReducer, initialState } from "./reducers/activity-reducer"
 import { ActivityList } from "./components/ActivityList"
+import { Footer } from "./components/Footer"
 
 function App() {
   const [state, dispatch] = useReducer(activityReducer, initialState)
@@ -22,15 +23,18 @@ function App() {
         activities={state.activities}
       />
       <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto mt-8">
-        <Form 
+        <Form
           state={state}
           dispatch={dispatch}
         />
-        <ActivityList 
-          activities={state.activities}
-          dispatch={dispatch}
-        />
+        <div className="max-h-[380px] overflow-y-auto p-4 scrollbar-hide">
+          <ActivityList 
+            activities={state.activities}
+            dispatch={dispatch}
+          />
+        </div>
       </div>
+      <Footer />
     </>
   )
 }
