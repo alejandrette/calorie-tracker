@@ -14,29 +14,22 @@ function App() {
   }, [state.activities])
 
   return (
-    <>
-      <Header
-        state={state}
-        dispatch={dispatch}    
-      />
-      <Calories 
-        activities={state.activities}
-      />
-      <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto mt-8">
-        <Form
-          state={state}
-          dispatch={dispatch}
-        />
-        <div className="max-h-[380px] overflow-y-auto p-4 scrollbar-hide">
-          <ActivityList 
-            activities={state.activities}
-            dispatch={dispatch}
-          />
+    <div className="flex flex-col min-h-screen">
+      <Header state={state} dispatch={dispatch} />
+  
+      <div className="flex-grow">
+        <Calories activities={state.activities} />
+        <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto mt-8">
+          <Form state={state} dispatch={dispatch} />
+          <div className="max-h-[380px] overflow-y-auto p-4 scrollbar-hide">
+            <ActivityList activities={state.activities} dispatch={dispatch} />
+          </div>
         </div>
       </div>
+  
       <Footer />
-    </>
-  )
+    </div>
+  );  
 }
 
 export default App
