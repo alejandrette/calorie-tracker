@@ -1,19 +1,17 @@
 import { FaUtensils, FaDumbbell, FaBalanceScale } from "react-icons/fa";
 import { useMemo } from "react"
-import { Activity } from "../types"
+import { useActivity } from "../hooks/useActivity";
 
-type CaloriesProp = {
-  activities: Activity[]
-}
+export function Calories() {
+  const {state} = useActivity()
 
-export function Calories({ activities }: CaloriesProp) {
   const caloriesFood = useMemo(() => (
-    activities.reduce((total, activity) => activity.category === 1 ? total + activity.calories : total , 0)
-  ), [activities])
+    state.activities.reduce((total, activity) => activity.category === 1 ? total + activity.calories : total , 0)
+  ), [state.activities])
 
   const caloriesExercise = useMemo(() => (
-    activities.reduce((total, activity) => activity.category === 2 ? total + activity.calories : total , 0)
-  ), [activities])
+    state.activities.reduce((total, activity) => activity.category === 2 ? total + activity.calories : total , 0)
+  ), [state.activities])
 
   const diferentCalories = useMemo(() => (
     caloriesFood - caloriesExercise

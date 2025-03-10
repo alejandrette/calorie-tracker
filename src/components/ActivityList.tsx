@@ -1,21 +1,17 @@
-import { Dispatch, useMemo } from "react";
-import { Activity } from "../types";
+import { useMemo } from "react";
 import { MdModeEditOutline } from "react-icons/md";
 import { FaDeleteLeft } from "react-icons/fa6";
-import { ActivityActions } from "../reducers/activity-reducer";
+import { useActivity } from "../hooks/useActivity";
 
 const categoryColors: Record<number, string> = {
   1: "bg-green-700", // Food
   2: "bg-blue-700" // Exercise
 };
 
-type ActivityListProps = {
-  activities: Activity[];
-  dispatch: Dispatch<ActivityActions>;
-};
+export function ActivityList() {
+  const {state, dispatch} = useActivity()
 
-export function ActivityList({ activities, dispatch }: ActivityListProps) {
-  const isEmpty = useMemo(() => activities.length <= 0, [activities])
+  const isEmpty = useMemo(() => state.activities.length <= 0, [state.activities])
 
   return (
     <div className="space-y-4">
@@ -23,7 +19,7 @@ export function ActivityList({ activities, dispatch }: ActivityListProps) {
         ? (
           <p className="text-center">There is no activity...</p>
         ) : (
-          activities.map((activity) => (
+          state.activities.map((activity) => (
             <div 
               key={activity.id}
               className="relative bg-gray-800 text-white shadow-lg rounded-lg overflow-hidden"

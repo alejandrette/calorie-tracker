@@ -1,12 +1,8 @@
-import { ActionDispatch, useMemo } from "react"
-import { ActivityActions, ActivityState } from "../reducers/activity-reducer"
+import { useMemo } from "react"
+import { useActivity } from "../hooks/useActivity";
 
-type HeaderProps = {
-  state: ActivityState;
-  dispatch: ActionDispatch<[action: ActivityActions]>;
-}
-
-export function Header({ state, dispatch }: HeaderProps) {
+export function Header() {
+  const {state, dispatch} = useActivity()
   const canResetApp = useMemo(() => state.activities.length > 0, [state.activities])
 
   return (

@@ -7,7 +7,7 @@ import { ActivityList } from "./components/ActivityList"
 import { Footer } from "./components/Footer"
 
 function App() {
-  const [state, dispatch] = useReducer(activityReducer, initialState)
+  const [state] = useReducer(activityReducer, initialState)
 
   useEffect(() => {
     localStorage.setItem('activities', JSON.stringify(state.activities))
@@ -15,14 +15,14 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header state={state} dispatch={dispatch} />
+      <Header />
   
       <div className="flex-grow">
-        <Calories activities={state.activities} />
+        <Calories />
         <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto mt-8">
-          <Form state={state} dispatch={dispatch} />
+          <Form />
           <div className="max-h-[380px] overflow-y-auto p-4 scrollbar-hide">
-            <ActivityList activities={state.activities} dispatch={dispatch} />
+            <ActivityList />
           </div>
         </div>
       </div>
